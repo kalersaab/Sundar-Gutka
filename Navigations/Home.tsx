@@ -25,6 +25,12 @@ import Barahmah from '../screens/Barahmah';
 import Bhagoti from '../screens/Bhagoti';
 import Akal from '../screens/Akal';
 import SlokMehla from '../screens/SlokMehla';
+import BawanAkhri from '../screens/BawanAkhri';
+import SidhGost from '../screens/SidhGost';
+import DakhniOnkar from '../screens/DakhniOnkar';
+import DukhBhajni from '../screens/DukhBhajni';
+import Ugardanti from '../screens/Ugardanti';
+import AasadiWar from '../screens/AasadiWar';
 
 const Stack = createNativeStackNavigator();
 
@@ -64,6 +70,12 @@ const Nitnem = () => {
         <Stack.Screen name="Barahmah" component={Barahmah} />
         <Stack.Screen name="Akal" component={Akal} />
         <Stack.Screen name="SlokMehla9" component={SlokMehla} />
+        <Stack.Screen name="BawanAkhri" component={BawanAkhri} />
+        <Stack.Screen name="SidhGost" component={SidhGost} />
+        <Stack.Screen name="DakhniOnkar" component={DakhniOnkar} />
+        <Stack.Screen name="DukhBhajni" component={DukhBhajni} />
+        <Stack.Screen name="Ugardanti" component={Ugardanti} />
+        <Stack.Screen name="AasadiWar" component={AasadiWar} />
       </Stack.Navigator>
     </NavigationContainer>
   );

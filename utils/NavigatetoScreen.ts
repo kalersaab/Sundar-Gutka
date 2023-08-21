@@ -50,6 +50,18 @@ const navigateToScreen = (item: Bani, navigation) => {
         navigation.navigate('Akal')
     }else if (item.ID===30){
         navigation.navigate('SlokMehla9')
+    }else if (item.ID===33){
+        navigation.navigate('BawanAkhri')
+    }else if (item.ID===34){
+        navigation.navigate('SidhGost')
+    }else if (item.ID===35){
+        navigation.navigate('DakhniOnkar')
+    }else if (item.ID===36){
+        navigation.navigate('DukhBhajni')
+    }else if (item.ID===53){
+        navigation.navigate('Ugardanti')
+    }else if (item.ID===90){
+        navigation.navigate('AasadiWar')
     }
 };
 export default navigateToScreen;

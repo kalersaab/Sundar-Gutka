@@ -9,7 +9,7 @@ import useData from '../hooks/useData';
 const Banis= () => {
     const navigation = useNavigation();
    const data = useData();
-    const filteredData = data.filter((item, index) => [1, 2, 3, 4, 7, 8, 9, 19,20, 21, 25, 29, 30].includes(index));
+    const filteredData = data.filter((item, index) => [1, 2, 3, 4, 7, 8, 9, 19,20, 21, 25, 29, 30, 86].includes(index));
     
     return (
         <View style={{ flex:1, backgroundColor: 'rgb(10,10,10)' }}>

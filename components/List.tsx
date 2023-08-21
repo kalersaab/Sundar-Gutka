@@ -20,7 +20,6 @@ const List = ({ verses}) => {
         />
     )
 }
-
 export default List;
 
 const styles = StyleSheet.create({
@@ -42,10 +41,4 @@ const styles = StyleSheet.create({
         fontSize: 17,
         textAlign: 'center'
     },
-    loader: {
-        flex: 1,
-        color:'white',
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
 })
