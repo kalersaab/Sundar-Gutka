@@ -2,7 +2,7 @@ import { SafeAreaView, Text, StyleSheet, StatusBar, Pressable } from "react-nati
 
 const BanisHome = ({ navigation }) => {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(20,20,20)' }}>
             <StatusBar hidden />
             <Pressable onPress={()=>navigation.navigate('Banis')}>
                 <Text style={styles.text}>ਨਿਤਨੇਮ</Text>

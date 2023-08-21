@@ -63,7 +63,7 @@ const Nitnem = () => {
         <Stack.Screen name="Bhagoti" component={Bhagoti} />
         <Stack.Screen name="Barahmah" component={Barahmah} />
         <Stack.Screen name="Akal" component={Akal} />
-        <Stack.Screen name="SlokMehla" component={SlokMehla} />
+        <Stack.Screen name="SlokMehla9" component={SlokMehla} />
       </Stack.Navigator>
     </NavigationContainer>
   );

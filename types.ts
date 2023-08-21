@@ -14,7 +14,7 @@ export interface Jaap{
     }
 export interface verses{
     verse: {
-        verse: any
+        verse: string,
         gurmukhi:string,
         unicode:string
     },

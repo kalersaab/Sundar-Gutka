@@ -12,7 +12,7 @@ const Banis= () => {
     const filteredData = data.filter((item, index) => [1, 2, 3, 4, 7, 8, 9, 19,20, 21, 25, 29, 30].includes(index));
     
     return (
-        <View style={{ flex:1, backgroundColor: 'black' }}>
+        <View style={{ flex:1, backgroundColor: 'rgb(10,10,10)' }}>
           <StatusBar hidden />
             <FlatList
                 data={filteredData}

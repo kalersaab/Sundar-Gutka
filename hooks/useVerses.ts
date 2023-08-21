@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { verses } from '../types';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import SERVER from '../config/connection';
 
 const useVerses = (apiEndpoint) =>{
     const [verses, setVerses] = useState<verses[]>([]);
