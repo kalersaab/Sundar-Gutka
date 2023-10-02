@@ -1,7 +1,8 @@
 import { SafeAreaView, StyleSheet, StatusBar, Pressable } from "react-native";
 import { Text, View } from "../components/themed";
+import { useNavigation } from "@react-navigation/native";
 
-const BanisHome = ({ navigation }) => {
+const BanisHome = ({ navigation }: any) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar hidden />

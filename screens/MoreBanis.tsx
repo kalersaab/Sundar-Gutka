@@ -14,7 +14,8 @@ const Banis = () => {
   const data = useData();
   const filteredData = data.filter((item, index) =>
     [
-      22, 24, 26, 27, 28, 31, 32, 33, 34, 48, 50, 52, 53, 54, 61, 62, 68,
+      11, 12, 22, 24, 26, 27, 28, 31, 32, 33, 34, 48, 50, 52, 53, 54, 61, 62,
+      68,
     ].includes(index)
   );
 

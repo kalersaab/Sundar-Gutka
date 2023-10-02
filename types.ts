@@ -1,25 +1,59 @@
-export interface Bani {
-    ID: number,
-    gurmukhiUni: string
+export interface Ang {
+    pageno: number;
+    source: Source;
+    count: number;
+    page?: PageEntity[];
+    error: boolean;
 }
-export interface Jaap {
-    verse: string,
-    baniID: number,
-    gurmukhi: string,
-    unicode: string,
-    english: string,
-    en: string,
-    hi: string,
-    ur: string,
+export interface Source {
+    sourceid: number;
+    gurmukhi: string;
+    unicode: string;
+    english: string;
+    length: number;
+    pageNo: number;
 }
-export interface verses {
-    verses: {
-        verse: string,
-        gurmukhi: string,
-        unicode: string
-    },
-    larivaar: {
-        gurmukhi: string,
-        unicode: string
-    }
+
+export interface PageEntity {
+    verse: Verse;
+    translation: Translation;
+};
+export interface Verse {
+
+    gurmukhi: string;
+    unicode: string;
+}
+export interface Translation {
+    pu: SS;
+    en: English;
+}
+export interface SS {
+    ss: Verse
+
+}
+export interface English {
+    bdb: Verse;
+}
+export interface Transliteration {
+    english: EnglishOrDevanagari;
+    devanagari: EnglishOrDevanagari;
+}
+export interface EnglishOrDevanagari {
+    text: string;
+    larivaar: string;
+}
+export interface Writer {
+    id: number;
+    akhar: string;
+    unicode: string;
+    english: string;
+}
+export interface Raag {
+    id: number;
+    akhar: string;
+    unicode: string;
+    english: string;
+    startang: number;
+    endang: number;
+    raagwithpage: string;
 }

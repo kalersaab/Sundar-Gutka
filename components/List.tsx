@@ -3,9 +3,10 @@ import React from "react";
 import { colors } from "../constant/colors/color";
 import { fontSize, headingText } from "../constant/layouts/layout";
 import { View, Text } from "./themed";
-const List = ({ verses }) => {
+const List = ({ verses }: any) => {
   return (
     <FlatList
+      style={{ margin: 15 }}
       data={verses}
       renderItem={({ item }) => (
         <View>

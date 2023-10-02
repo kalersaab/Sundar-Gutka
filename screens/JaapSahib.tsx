@@ -10,8 +10,8 @@ const JaapSahib = () => {
   const Route = "/4";
   const verses = useVerses(SERVER + Route);
   return (
-    <SafeAreaView style={{ backgroundColor: colors.black, flex: 1 }}>
-      <StatusBar backgroundColor="white" hidden={true} />
+    <SafeAreaView>
+      <StatusBar hidden={true} />
       <List verses={verses} />
     </SafeAreaView>
   );

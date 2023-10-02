@@ -9,7 +9,7 @@ const Chandiwar = () => {
   const Route = "/13";
   const verses = useVerses(SERVER + Route);
   return (
-    <SafeAreaView style={{ backgroundColor: "black", flex: 1 }}>
+    <SafeAreaView>
       <StatusBar backgroundColor="white" hidden={true} />
       <List verses={verses} />
     </SafeAreaView>

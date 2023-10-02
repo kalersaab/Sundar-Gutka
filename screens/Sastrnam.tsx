@@ -10,7 +10,7 @@ const Sastrnam = () => {
   const Route = "/19";
   const verses = useVerses(SERVER + Route);
   return (
-    <SafeAreaView style={{ backgroundColor: "black", flex: 1 }}>
+    <SafeAreaView>
       <StatusBar backgroundColor="white" hidden={true} />
       <Japjilist verses={verses} />
     </SafeAreaView>

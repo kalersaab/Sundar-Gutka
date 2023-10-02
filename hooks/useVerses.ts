@@ -1,14 +1,15 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { verses } from '../types';
+import { Verse } from '../types';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const useVerses = (apiEndpoint) =>{
-    const [verses, setVerses] = useState<verses[]>([]);
+const useVerses = (apiEndpoint: any) => {
+    const [verses, setVerses] = useState<Verse[]>([]);
 
-    const storeVerses = async (data: verses[]) => {
+    const storeVerses = async (data: Verse[]) => {
         try {
             await AsyncStorage.setItem('verses', JSON.stringify(data));
+            return data;
         } catch (error) {
             console.log(error);
         }
@@ -17,8 +18,7 @@ const useVerses = (apiEndpoint) =>{
         try {
             const storedData = await AsyncStorage.getItem('verses');
             if (storedData) {
-                const parsedData = JSON.parse(storedData);
-                setVerses(parsedData);
+                return JSON.parse(storedData);
             }
         } catch (error) {
             console.log(error);
@@ -31,7 +31,7 @@ const useVerses = (apiEndpoint) =>{
             const apiVerses = (res?.data?.verses || []);
             setVerses(apiVerses);
             storeVerses(apiVerses);
-            
+
         } catch (error) {
             console.log(error);
             getStoredVerses();
