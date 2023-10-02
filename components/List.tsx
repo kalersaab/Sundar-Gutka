@@ -10,11 +10,11 @@ const List = ({ verses }) => {
       renderItem={({ item }) => (
         <View>
           {item.header === 1 ? (
-            <Text style={[styles.headingText, { color: colors.orange }]}>
+            <Text style={[styles.headingText, { color: colors.brown }]}>
               {item?.verse?.verse?.gurmukhi}
             </Text>
           ) : item.header === 2 ? (
-            <Text style={styles.greenHeadingText}>
+            <Text style={styles.purpleHeadingText}>
               {item?.verse?.verse?.gurmukhi}
             </Text>
           ) : (
@@ -22,8 +22,8 @@ const List = ({ verses }) => {
               <Text style={styles.text}>{item?.verse?.verse?.gurmukhi}</Text>
               <Text
                 style={{
-                  color: colors.grey,
-                  fontSize: fontSize.medium,
+                  color: colors.purple,
+                  fontSize: fontSize.small,
                   textAlign: "center",
                 }}
               >
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "GurbaniAkharHeavy",
   },
-  greenHeadingText: {
-    color: colors.green,
+  purpleHeadingText: {
+    color: colors.secondarypurple,
     fontSize: headingText.xxl,
     textAlign: "center",
     fontFamily: "GurbaniAkharHeavy",
