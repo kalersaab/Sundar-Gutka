@@ -6,7 +6,7 @@ import { View, Text } from "./themed";
 const List = ({ verses }: any) => {
   return (
     <FlatList
-      style={{ margin: 15 }}
+      style={{ margin: 10 }}
       data={verses}
       renderItem={({ item }) => (
         <View>
