@@ -76,7 +76,7 @@ const Navigation = ({ colorScheme }: { colorScheme: ColorSchemeName }) => {
           <Stack.Screen
             name="Banis"
             component={Banis}
-            options={{ headerShown: true }}
+            options={{ headerShown: false }}
           />
           <Stack.Screen name="japjiSahib" component={JapjiSahib} />
           <Stack.Screen name="ShabadHazaree" component={ShabadHazaree} />
