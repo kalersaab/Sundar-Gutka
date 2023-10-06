@@ -7,6 +7,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import "react-native-gesture-handler";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { PaperProvider } from "react-native-paper";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const SplashScreen = () => (
   <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>

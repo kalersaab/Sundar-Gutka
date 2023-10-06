@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { useAng } from "../../Data/ang/query";
 import { View, Text } from "../../components/themed";
 import * as Animatable from "react-native-animatable";
@@ -19,12 +19,11 @@ function Ang({ page, setAngId }: { page: number; setAngId: any }) {
     }
   );
   const pages = ang.data?.source?.pageNo || [];
-  const trans = ang?.data?.page[0].translation.pu?.ss?.unicode || [];
 
   const [angValue, setAngValue] = useState(page);
   const [visible, setVisible] = useState(false);
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Portal>
         <Dialog visible={visible}>
           <TextInput
@@ -89,7 +88,7 @@ function Ang({ page, setAngId }: { page: number; setAngId: any }) {
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 const Page = ({ index, setAngId }: { index: number; setAngId: any }) => {

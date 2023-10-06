@@ -1,4 +1,4 @@
-package com.android.gurbani;
+package com.android.sundargutka;
 
 import android.app.Application;
 import android.content.res.Configuration;
