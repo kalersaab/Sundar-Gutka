@@ -19,9 +19,10 @@ export interface PageEntity {
     translation: Translation;
 };
 export interface Verse {
-
+    ID?:number;
     gurmukhi: string;
     unicode: string;
+    gurmukhiUni:string;
 }
 export interface Translation {
     pu: SS;

@@ -22,10 +22,9 @@ const App = () => {
   const colorScheme = useColorScheme();
 
   useEffect(() => {
-    // Simulate loading time
     setTimeout(() => {
       setIsLoaded(true);
-    }, 3000); // Adjust the time as needed
+    }, 3000); 
   }, []);
   if (!isLoadingComplete) {
     return null;

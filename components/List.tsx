@@ -4,12 +4,14 @@ import { colors } from "../constant/colors/color";
 import { fontSize, headingText } from "../constant/layouts/layout";
 import { View, Text } from "./themed";
 const List = ({ verses }: any) => {
+
   return (
     <FlatList
-      style={{ margin: 10 }}
-      data={verses}
-      renderItem={({ item }) => (
-        <View>
+      style={{ margin:5}}
+      showsVerticalScrollIndicator={false}
+      data={verses?.data?.verses}
+      renderItem={({ item }) =>(
+        <View style={{ }}>
           {item.header === 1 ? (
             <Text style={[styles.headingText, { color: colors.brown }]}>
               {item?.verse?.verse?.gurmukhi}
