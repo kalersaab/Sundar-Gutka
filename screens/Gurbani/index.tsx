@@ -10,7 +10,7 @@ const Gurbani = ({route}:any) => {
   const verses = useGetsingleBanis({pathParams:{id:Route}})
   return (
     <SafeAreaView style={{flex:1, backgroundColor:"#fff"}}>
-      <StatusBar barStyle="dark-content"/>
+      <StatusBar barStyle="light-content"/>
       <List verses={verses} />
     </SafeAreaView>
   );

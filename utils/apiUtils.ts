@@ -3,7 +3,7 @@ import Axios from "axios";
 import queryString from "querystring";
 
 export const hostname = () => {
-    let hostUrl = "https://api.banidb.com";
+    let hostUrl = "http://api.banidb.com";
     return hostUrl;
 };
 const hostUrl = hostname();
