@@ -7,25 +7,21 @@ import { fontSize } from "../../constant/layouts/layout";
 import { colors } from "../../constant/colors/color";
 
 const Banis = ({navigation}:any) => {
-  const data = useGetBanis();
-  const filteredData = data?.data?.filter((index: number) =>
-    [
-      11, 12, 22, 24, 26, 27, 28, 31, 32, 33, 34, 48, 50, 52, 53, 54, 61, 62,
-      68,
-    ].includes(index)
-  );
-
+  const data:any = useGetBanis();
+const filteredData = data?.data?.filter((item: any) =>
+  [11, 12, 22, 24, 26, 27, 28, 31, 32, 33, 34, 48, 50, 52, 53, 54, 61, 62, 68].includes(item.ID)
+);
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar/>
+    <SafeAreaView style={{ flex: 1,}}>
+      <StatusBar hidden/>
       <FlatList
         data={filteredData}
         renderItem={({ item }) => (
-          <View>
+          <SafeAreaView style={{}}>
             <Pressable onPress={() =>  navigation.push("Gurbani", {id:item?.ID})}>
               <Text style={styles.text}>{item.gurmukhiUni}</Text>
             </Pressable>
-          </View>
+          </SafeAreaView>
         )}
         keyExtractor={(item) => item?.ID?.toString()}
       />
@@ -37,8 +33,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: fontSize.large,
     padding: 10,
-    borderBottomWidth: 0.5,
-    borderBottomColor: colors.white,
     textAlign: "center",
   },
 });

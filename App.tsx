@@ -4,10 +4,9 @@ import Navigation from "./Navigations/Home";
 import useColorScheme from "./hooks/useColorSchema";
 import { View } from "./components/themed";
 import useCachedResources from "./hooks/useCachedResources";
-import "react-native-gesture-handler";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { PaperProvider } from "react-native-paper";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { TranslationProvider } from "./TranslationContext";
 
 const SplashScreen = () => (
   <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -31,9 +30,11 @@ const App = () => {
   } else {
     return isLoaded ? (
       <QueryClientProvider client={queryClient}>
+         <TranslationProvider>
         <PaperProvider>
           <Navigation colorScheme={colorScheme} />
         </PaperProvider>
+        </TranslationProvider>
       </QueryClientProvider>
     ) : (
       <SplashScreen />

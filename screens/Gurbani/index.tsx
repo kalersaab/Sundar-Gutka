@@ -7,11 +7,11 @@ import List from "../../components/List";
 const Gurbani = ({route}:any) => {
 
   const Route = route?.params?.id;
-  const verses = useGetsingleBanis({pathParams:{id:Route}})
+  const {data:verses, isLoading} = useGetsingleBanis({pathParams:{id:Route}})
   return (
-    <SafeAreaView style={{flex:1, backgroundColor:"#fff"}}>
-      <StatusBar barStyle="light-content"/>
-      <List verses={verses} />
+    <SafeAreaView style={{flex: 1,}}>
+      <StatusBar hidden translucent/>
+      <List verses={verses} isLoading={isLoading} />
     </SafeAreaView>
   );
 };

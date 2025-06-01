@@ -58,3 +58,7 @@ export interface Raag {
     endang: number;
     raagwithpage: string;
 }
+export interface VisraamItem {
+  p: number;
+  t: string; 
+}

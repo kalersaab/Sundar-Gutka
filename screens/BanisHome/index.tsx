@@ -3,7 +3,7 @@ import { Text } from "../../components/themed";
 
 const BanisHome = ({ navigation }: any) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor:"white" }}>
+    <SafeAreaView style={{ flex: 1}}>
         <StatusBar />
       <Pressable onPress={() => navigation.push("Banis")}>
         <Text style={styles.text}>ਨਿਤਨੇਮ</Text>
