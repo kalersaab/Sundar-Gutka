@@ -1,8 +1,9 @@
-import { useQuery } from "react-query";
-import { Ang } from "../../types";
+import { useQuery } from "@tanstack/react-query";
 import { getAng } from "./services";
 
 export const useAng = ({ angId }: any, option: any) =>
-    useQuery<any, any, Ang, any>(["ang", angId], async () => getAng({ angId }),
-        { ...option }
-    );
+    useQuery({
+        queryKey: ["ang", angId],
+        queryFn: () => getAng({ angId }),
+        ...option
+    });
