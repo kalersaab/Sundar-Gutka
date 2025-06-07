@@ -12,8 +12,8 @@ const filteredData = data?.data?.filter((item: any) =>
   [11, 12, 22, 24, 26, 27, 28, 31, 32, 33, 34, 48, 50, 52, 53, 54, 61, 62, 68].includes(item.ID)
 );
   return (
-    <SafeAreaView style={{ flex: 1,}}>
-      <StatusBar hidden/>
+    <SafeAreaView>
+      <StatusBar translucent backgroundColor={colors.secondarypurple} />
       <FlatList
         data={filteredData}
         renderItem={({ item }) => (

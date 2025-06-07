@@ -9,6 +9,7 @@ import {
 import { useGetBanis } from "../../hooks/query";
 import { Text } from "../../components/themed";
 import { fontSize } from "../../constant/layouts/layout";
+import { StatusBar } from "expo-status-bar";
 
 const Banis = ({ navigation }: any) => {
   const { data, isLoading }: any = useGetBanis();
@@ -26,7 +27,8 @@ const Banis = ({ navigation }: any) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, marginTop: 20 }}>
+      <StatusBar hidden/>
       <FlatList
       onEndReachedThreshold={0.5}
         showsVerticalScrollIndicator={false}

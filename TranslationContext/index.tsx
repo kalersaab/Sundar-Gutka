@@ -6,21 +6,53 @@ type TranslationContextType = {
   toggleTranslation: () => void;
 };
 
-const TranslationContext = createContext<TranslationContextType>({
-  showTranslation: true,
-  toggleTranslation: () => {},
-});
+type LarivaarContextType = {
+  larivaar: boolean;
+  toggleLarivaar: () => void;
+};
 
-export const TranslationProvider = ({ children }: { children: React.ReactNode }) => {
+type CombinedSettingsContextType = {
+  translation: TranslationContextType;
+  larivaar: LarivaarContextType;
+};
+
+const defaultState: CombinedSettingsContextType = {
+  translation: {
+    showTranslation: true,
+    toggleTranslation: () => {},
+  },
+  larivaar: {
+    larivaar: true,
+    toggleLarivaar: () => {},
+  },
+};
+
+const SettingsContext = createContext<CombinedSettingsContextType>(defaultState);
+
+export const SettingsProvider = ({ children }: { children: React.ReactNode }) => {
   const [showTranslation, setShowTranslation] = useState(true);
+  const [larivaar, setLarivaar] = useState(true);
 
   useEffect(() => {
-    (async () => {
-      const storedValue = await AsyncStorage.getItem("showTranslation");
-      if (storedValue !== null) {
-        setShowTranslation(JSON.parse(storedValue));
+    const loadSettings = async () => {
+      try {
+        const [translationValue, larivaarValue] = await Promise.all([
+          AsyncStorage.getItem("showTranslation"),
+          AsyncStorage.getItem("larivaar"),
+        ]);
+
+        if (translationValue !== null) {
+          setShowTranslation(JSON.parse(translationValue));
+        }
+        if (larivaarValue !== null) {
+          setLarivaar(JSON.parse(larivaarValue));
+        }
+      } catch (error) {
+        console.error("Failed to load settings", error);
       }
-    })();
+    };
+
+    loadSettings();
   }, []);
 
   const toggleTranslation = async () => {
@@ -29,11 +61,29 @@ export const TranslationProvider = ({ children }: { children: React.ReactNode })
     await AsyncStorage.setItem("showTranslation", JSON.stringify(newValue));
   };
 
+  const toggleLarivaar = async () => {
+    const newValue = !larivaar;
+    setLarivaar(newValue);
+    await AsyncStorage.setItem("larivaar", JSON.stringify(newValue));
+  };
+
+  const value = {
+    translation: {
+      showTranslation,
+      toggleTranslation,
+    },
+    larivaar: {
+      larivaar,
+      toggleLarivaar,
+    },
+  };
+
   return (
-    <TranslationContext.Provider value={{ showTranslation, toggleTranslation }}>
+    <SettingsContext.Provider value={value}>
       {children}
-    </TranslationContext.Provider>
+    </SettingsContext.Provider>
   );
 };
 
-export const useTranslation = () => useContext(TranslationContext);
+export const useTranslation = () => useContext(SettingsContext).translation;
+export const useLarivaar = () => useContext(SettingsContext).larivaar;

@@ -5,6 +5,7 @@ import BanisHome from "../../screens/BanisHome";
 import { MaterialIcons, Foundation } from "@expo/vector-icons";
 import { colors } from "../../constant/colors/color";
 import About from "../../screens/About";
+import Hukamanama from "@/screens/Hukamnama";
 
 const RouterDrawer = () => {
   const Drawer = createDrawerNavigator();
@@ -39,6 +40,21 @@ const RouterDrawer = () => {
           ),
         }}
       />
+      <Drawer.Screen
+        name="Hukamnama"
+        component={Hukamanama}
+        options={{
+          headerShown:false,
+          drawerIcon: ({ color, size }) => (
+            <MaterialIcons
+              name="format-list-numbered"
+              style={{ color: colors.purple }}
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+        />
       <Drawer.Screen
         name="About"
         component={About}

@@ -15,4 +15,11 @@ export const Gurbani = {
       uri: '/banis/:id',
     },
   },
+  hukamanama: {
+    v1: {
+      ...defaults.methods.GET,
+      ...defaults.versions.v2,
+      uri: '/hukamnamas/today',
+    },
+  },
 };

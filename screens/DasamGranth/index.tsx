@@ -11,7 +11,9 @@ import InfinitePager, {
 } from "react-native-infinite-pager";
 import { fontSize } from "../../constant/layouts/layout";
 import { colors } from "../../constant/colors/color";
+import { useLarivaar } from "@/TranslationContext";
 function Ang({ page, setAngId }: { page: number; setAngId: any }) {
+const {larivaar} = useLarivaar()
   const ang = useAng(
     { angId: page },
     {
@@ -72,13 +74,14 @@ function Ang({ page, setAngId }: { page: number; setAngId: any }) {
                 fontSize: 30,
                 fontWeight: "600",
                 textAlign: "center",
+                fontFamily: "GurbaniAkhar",
               }}
             >
-              {page.item.verse.unicode}
+              {larivaar? page.item?.larivaar.gurmukhi:page.item.verse.gurmukhi}
             </Text>
             <Text
               style={{
-                color: colors.purple,
+                color: colors.darkGreen,
                 fontSize: fontSize.small,
                 textAlign: "center",
               }}

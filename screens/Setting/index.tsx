@@ -4,9 +4,10 @@ import { View, Text } from "../../components/themed";
 import { colors } from "../../constant/colors/color";
 import { fontSize } from "../../constant/layouts/layout"
 import { useTranslation } from "../../TranslationContext";
-
+import { useLarivaar } from "../../TranslationContext"; 
 const Setting = () => {
   const { showTranslation, toggleTranslation } = useTranslation();
+  const { larivaar, toggleLarivaar } = useLarivaar(); 
 
   return (
     <View style={styles.screen}>
@@ -19,9 +20,15 @@ const Setting = () => {
           thumbColor={showTranslation ? colors.secondarypurple : colors.white}
         />
       </View>
-      <Text style={styles.statusText}>
-        Translation is {showTranslation ? "On" : "Off"}
-      </Text>
+      <View style={styles.row}>
+        <Text style={styles.title}>Larivaar Text</Text>
+        <Switch
+          value={larivaar} // Fixed: was using showTranslation instead of larivaar
+          onValueChange={toggleLarivaar} // Fixed: using the correct toggle function
+          trackColor={{ false: colors.grey, true: colors.purple }}
+          thumbColor={larivaar ? colors.secondarypurple : colors.white} // Fixed: using larivaar state
+        />
+      </View>
     </View>
   );
 };

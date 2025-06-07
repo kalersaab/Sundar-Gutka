@@ -3,11 +3,12 @@ import React from "react";
 import { colors } from "../constant/colors/color";
 import { fontSize, headingText } from "../constant/layouts/layout";
 import { View, Text } from "./themed";
-import { useTranslation } from "../TranslationContext";
+import { useLarivaar, useTranslation } from "../TranslationContext";
 import { parseVisraam } from "../config";
 
 const List = ({ verses, isLoading }: any) => {
   const { showTranslation } = useTranslation();
+  const{ larivaar } = useLarivaar();
   const visraam= verses?.verses.map((item: any) => item?.verse?.visraam)
 const visraamPositions = parseVisraam(visraam);
   if (isLoading) {
@@ -26,21 +27,24 @@ const visraamPositions = parseVisraam(visraam);
       data={verses?.verses}
       keyExtractor={(item, index) => `${item?.verse?.verse?.ID || index}`}
       renderItem={({ item, index }) => (
-        <SafeAreaView >
+        <SafeAreaView style={{ marginHorizontal: larivaar?10:0 }}>
           {item.header === 1 ? (
             <Text style={[styles.headingText, { color: colors.purple }]}>
-              {item?.verse?.verse?.gurmukhi}
+              {larivaar?item?.verse?.larivaar.gurmukhi: item?.verse?.verse?.gurmukhi}
             </Text>
           ) : item.header === 2 ? (
             <Text style={styles.purpleHeadingText}>
-              {item?.verse?.verse?.gurmukhi}
+              {larivaar?item?.verse?.larivaar.gurmukhi:item?.verse?.verse?.gurmukhi}
             </Text>
           ) : (
             <>
+          {  larivaar?
+          (<Text style={styles.text}>{item?.verse?.larivaar.gurmukhi}</Text>):
+          (
               <GurbaniVerse 
                 gurmukhi={item?.verse?.verse?.gurmukhi} 
                 visraamPosition={visraamPositions[index] || {}} 
-              />
+              />)}
               {showTranslation && (
                 <Text style={styles.translationText}>
                   {item?.verse?.translation?.pu?.ss?.unicode}
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
     fontFamily: "GurbaniAkharHeavy",
   },
   translationText: {
-    color: colors.lightgreen,
+    color: colors.lightorange,
     fontSize: fontSize.medium,
     textAlign: "center",
   },
