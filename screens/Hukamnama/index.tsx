@@ -1,4 +1,5 @@
-import { SafeAreaView,StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { View, Text } from '@/components/themed'
 import React from 'react'
 import { useLarivaar, useTranslation } from '@/TranslationContext'
@@ -8,6 +9,7 @@ import List from '@/components/List'
 import { parseVisraam } from '@/config'
 import { colors } from '@/constant/colors/color'
 import { fontSize, headingText } from '@/constant/layouts/layout'
+import { StatusBar } from 'expo-status-bar'
 
 const Hukamanama = () => {
   const { larivaar } = useLarivaar()
@@ -17,12 +19,13 @@ const Hukamanama = () => {
   const visraam= getHukam?.map((item: any) => item?.visraam)
   const visraamPositions = parseVisraam(visraam);
   return (
-    <SafeAreaView style={{ flex: 1}}>
+    <SafeAreaView>
+      <StatusBar hidden />
       <FlatList
       data={getHukam}
       renderItem={({item,index}) =>{
         return (
-       <SafeAreaView style={{flex:1, justifyContent:'center', marginHorizontal: larivaar?10:0 }}>
+       <View style={{flex:1, justifyContent:'center', marginHorizontal: larivaar?10:0 }}>
                    <>
                  {  larivaar?
                  (<Text style={styles.text}>{item?.larivaar.gurmukhi}</Text>):
@@ -37,7 +40,7 @@ const Hukamanama = () => {
                        </Text>
                      )}
                    </>
-               </SafeAreaView>
+               </View>
       )}}
       />
     </SafeAreaView>
@@ -50,7 +53,7 @@ const GurbaniVerse = ({ gurmukhi, visraamPosition }:any) => {
   const words = gurmukhi.split(' ');
   
   return (
-    <SafeAreaView style={styles.lineContainer}>
+    <View style={styles.lineContainer}>
       {words.map((word:any, index:any) => (
         <Text
           key={`word-${index}`}
@@ -62,7 +65,7 @@ const GurbaniVerse = ({ gurmukhi, visraamPosition }:any) => {
           {word}{' '}
         </Text>
       ))}
-    </SafeAreaView>
+    </View>
   );
 };
 

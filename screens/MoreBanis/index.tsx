@@ -1,5 +1,6 @@
 import React from "react";
-import { FlatList, Pressable, SafeAreaView, StyleSheet } from "react-native";
+import { FlatList, Pressable, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { useGetBanis } from "../../hooks/query";
 import { View, Text } from "../../components/themed";
@@ -12,16 +13,16 @@ const filteredData = data?.data?.filter((item: any) =>
   [11, 12, 22, 24, 26, 27, 28, 31, 32, 33, 34, 48, 50, 52, 53, 54, 61, 62, 68].includes(item.ID)
 );
   return (
-    <SafeAreaView>
-      <StatusBar translucent backgroundColor={colors.secondarypurple} />
+    <SafeAreaView style={{flex:1}}>
+      <StatusBar style="auto" />
       <FlatList
         data={filteredData}
         renderItem={({ item }) => (
-          <SafeAreaView style={{}}>
+          <View>
             <Pressable onPress={() =>  navigation.push("Gurbani", {id:item?.ID})}>
               <Text style={styles.text}>{item.gurmukhiUni}</Text>
             </Pressable>
-          </SafeAreaView>
+          </View>
         )}
         keyExtractor={(item) => item?.ID?.toString()}
       />

@@ -1,9 +1,10 @@
-import { SafeAreaView, StyleSheet, StatusBar, Pressable } from "react-native";
-import { Text } from "../../components/themed";
+import { StyleSheet, StatusBar, Pressable } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Text, View } from "../../components/themed";
 
 const BanisHome = ({ navigation }: any) => {
   return (
-    <SafeAreaView style={{ flex: 1}}>
+    <View style={{ flex: 1}}>
         <StatusBar />
       <Pressable onPress={() => navigation.push("Banis")}>
         <Text style={styles.text}>ਨਿਤਨੇਮ</Text>
@@ -11,7 +12,7 @@ const BanisHome = ({ navigation }: any) => {
       <Pressable onPress={() => navigation.push("MoreBanis")}>
         <Text style={styles.text}>ਬੇਅੰਤ ਬਾਣੀ</Text>
       </Pressable>
-    </SafeAreaView>
+    </View>
   );
 };
 export default BanisHome;

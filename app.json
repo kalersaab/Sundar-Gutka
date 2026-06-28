@@ -3,6 +3,7 @@
     "name": "SundarGutka",
     "slug": "SundarGutka",
     "version": "1.0.2",
+    "sdkVersion": "56.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -30,6 +31,16 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
     "extra": {
       "eas": {
         "projectId": "6fbdd03f-005b-48e7-ba2e-c68afc2a1d85"

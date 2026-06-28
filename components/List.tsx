@@ -1,4 +1,5 @@
-import { FlatList, StyleSheet, ActivityIndicator, SafeAreaView } from "react-native";
+import { FlatList, StyleSheet, ActivityIndicator } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { colors } from "../constant/colors/color";
 import { fontSize, headingText } from "../constant/layouts/layout";
@@ -22,12 +23,11 @@ const visraamPositions = parseVisraam(visraam);
 
     return (
     <FlatList
-      style={{ margin:5}}
       showsVerticalScrollIndicator={false}
       data={verses?.verses}
       keyExtractor={(item, index) => `${item?.verse?.verse?.ID || index}`}
       renderItem={({ item, index }) => (
-        <SafeAreaView style={{ marginHorizontal: larivaar?10:0 }}>
+        <View>
           {item.header === 1 ? (
             <Text style={[styles.headingText, { color: colors.purple }]}>
               {larivaar?item?.verse?.larivaar.gurmukhi: item?.verse?.verse?.gurmukhi}
@@ -52,7 +52,7 @@ const visraamPositions = parseVisraam(visraam);
               )}
             </>
           )}
-        </SafeAreaView>
+        </View>
       )}
       ListEmptyComponent={() => (
         <Text style={styles.emptyText}>No verses found.</Text>
@@ -67,7 +67,7 @@ const GurbaniVerse = ({ gurmukhi, visraamPosition }:any) => {
   const words = gurmukhi.split(' ');
   
   return (
-    <SafeAreaView style={styles.lineContainer}>
+    <View style={styles.lineContainer}>
       {words.map((word:any, index:any) => (
         <Text
           key={`word-${index}`}
@@ -79,7 +79,7 @@ const GurbaniVerse = ({ gurmukhi, visraamPosition }:any) => {
           {word}{' '}
         </Text>
       ))}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
   lineContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -155,7 +154,6 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     textAlign: "center",
-    marginTop: 20,
     fontSize: fontSize.medium,
     color: colors.purple,
   },

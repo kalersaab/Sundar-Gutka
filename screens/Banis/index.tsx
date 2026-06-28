@@ -2,12 +2,12 @@ import React from "react";
 import {
   FlatList,
   Pressable,
-  SafeAreaView,
   StyleSheet,
   ActivityIndicator,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useGetBanis } from "../../hooks/query";
-import { Text } from "../../components/themed";
+import { Text, View } from "../../components/themed";
 import { fontSize } from "../../constant/layouts/layout";
 import { StatusBar } from "expo-status-bar";
 
@@ -27,23 +27,22 @@ const Banis = ({ navigation }: any) => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, marginTop: 20 }}>
+    <View style={{flex:1, marginTop:25}}>
       <StatusBar hidden/>
       <FlatList
       onEndReachedThreshold={0.5}
         showsVerticalScrollIndicator={false}
         data={filteredData}
         renderItem={({ item }) => (
-          <SafeAreaView>
+          <View style={{flex:1}}>
             <Pressable onPress={() => navigation.push("Gurbani", { id: item?.ID })}>
               <Text style={styles.text}>{item.gurmukhiUni}</Text>
             </Pressable>
-          </SafeAreaView>
+          </View>
         )}
-        contentContainerStyle={{ paddingBottom: 20 }}
         keyExtractor={(item) => item?.ID?.toString()}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

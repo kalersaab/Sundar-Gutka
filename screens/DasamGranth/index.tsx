@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useAng } from "../../Data/ang/query";
 import { View, Text } from "../../components/themed";
 import * as Animatable from "react-native-animatable";
@@ -131,7 +132,7 @@ export default function TabOneScreen() {
       setDisplayPage(true);
     }, 1000);
     return () => {};
-  }, [infinitePager.current]);
+  }, []);
 
   return (
     <View style={styles.flex}>

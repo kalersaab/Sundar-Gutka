@@ -38,7 +38,6 @@ export default Setting;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: "center",
     paddingHorizontal: 20,
   },
   row: {
